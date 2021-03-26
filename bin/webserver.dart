@@ -11,7 +11,6 @@ void main(List<String> args) async {
 
   final app = Router();
 
-  app.mount('/movies/', MovieApi().router);
   app.mount('/api/packages/', PackageApi().router);
   // app.get('/assets/<file|.*>', createStaticHandler('templates'));
   app.mount('/assets/', StaticAssetsApi('templates').router);
