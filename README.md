@@ -27,8 +27,8 @@ You can find a dummy pub packages data in `package.json` file present in root fo
 
 | Routes                | Description                                 |
 | --------------------- | ------------------------------------------- |
-| **GET** `/api/packages`| Get list of packages.|
-| **GET** `/api/packages/<PACKAGE>` | Ger the information of specific package.|
+| **GET** `/api/packages/`| Get list of packages.|
+| **GET** `/api/packages/<PACKAGE>` | Get the information of specific package.|
 | **GET** `/api/packages/<PACKAGE>/versions/<VERSION>`| Get the information of certain package with specific version. |
 
 
@@ -40,6 +40,26 @@ To run the server, enter the commands
 git clone https://github.com/sumeetmathpati/dart-web-server.git
 cd hosted-pub-server
 dart run
+```
+
+## Example API Queries
+
+### Get the list of all packages
+
+```bash
+curl http://localhost:8080/api/packages/
+```
+
+### Get the information of specific package
+
+```bash
+curl http://localhost:8080/api/packages/provider
+```
+
+### Get the information of certain package with specific version.
+
+```bash
+http://localhost:8080/api/packages/provider/versions/5.0.0
 ```
 
 ## Converting to JS
