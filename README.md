@@ -5,47 +5,43 @@
     <img src="./logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Dart Pub Server</h3>
+  <h3 align="center">Hosted Pub Server</h3>
 
   <p align="center">
-    A minimal web server in dart
+    The one server, to serve them all
     <br />
   </p>
 </p>
 
 ## Features
 
-- Implemented web server with Dart package [shelf](https://pub.dev/packages/shelf).
-- Serving static files with [shelf static](https://pub.dev/packages/shelf_static)
-- Implemented example REST APIs:
-  - **List all packages**
-    - **GET** `<PUB_HOSTED_URL>/api/packages`
-    - **Headers:** `Accept: application/vnd.pub.v2+json`
-    - **Response:** `Content-Type: application/vnd.pub.v2+json`
-  - **List all versions of a package**
-    - **GET** `<PUB_HOSTED_URL>/api/packages/<PACKAGE>`
-    - **Headers:** `Accept: application/vnd.pub.v2+json`
-    - **Response:** `Content-Type: application/vnd.pub.v2+json`
-  - **(Deprecated) Inspect a specific version of a package**
-    - **GET** `<PUB_HOSTED_URL>/api/packages/<PACKAGE>/versions/<VERSION>`
-    - **Headers:** `Accept: application/vnd.pub.v2+json`
-    - **Response:** `Content-Type: application/vnd.pub.v2+json`
+- [x] Implemented web server with Dart package [shelf](https://pub.dev/packages/shelf).
+- [x] Serving static files with [shelf static](https://pub.dev/packages/shelf_static).
+- [x] Compile Dart Code to Javascript
+- [x] Serve a REST API (in JSON).
+- [x] Rendering HTML pages.
+
+## Implemented API endpoints
+
+You can find a dummy pub packages data in `package.json` file present in root folder.
+
+| Routes                | Description                                 |
+| --------------------- | ------------------------------------------- |
+| **GET** `/api/packages`| Get list of packages.|
+| **GET** `/api/packages/<PACKAGE>` | Ger the information of specific package.|
+| **GET** `/api/packages/<PACKAGE>/versions/<VERSION>`| Get the information of certain package with specific version. |
 
 
 ## Running Server
 
-To run the server
-    - clone the project: `git clone https://github.com/sumeetmathpati/dart-web-server.git`
-    - Open the downloaded code directory: `cd hosted-pub-server`
-    - Run the app with dart: `dart bin/webserver.dart`
+To run the server, enter the commands
 
-## API Queries
+```bash
+git clone https://github.com/sumeetmathpati/dart-web-server.git
+cd hosted-pub-server
+dart run
+```
 
-I've implemented some JSON API endpoints, and their examples are given below.
+## Converting to JS
 
-- To get the list of packages:
-    - `curl http://localhost:8080/api/packages/<PACKAGE>`
-- To get the list of all versions of package:
-    - `curl http://localhost:8080/api/packages/<PACKAGE>`
-- To get the details about specific movie:
-    - `curl http://localhost:8080/api/packages/<PACKAGE>/versions/<VERSION>`
+We cna convert ehe dart code into JS with dart2js package.

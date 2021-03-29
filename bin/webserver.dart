@@ -1,13 +1,12 @@
-import 'package:webserver/src/movie_api.dart';
 import 'package:webserver/src/package_api.dart';
 import 'package:webserver/src/staticHandler.dart';
 import 'package:webserver/webserver.dart';
 import 'package:shelf_router/shelf_router.dart';
-
+import 'package:webserver/src/settings.dart';
 
 void main(List<String> args) async {
-  final String HOST = 'localhost';
-  final int PORT = 8080;
+  // final String HOST = 'localhost';
+  // final int PORT = 8080;
 
   final app = Router();
 

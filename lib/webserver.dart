@@ -30,8 +30,6 @@ Middleware handleCORS() {
 }
 
 Handler htmlHandler(String filePath) => (Request request) {
-      final indexFile =
-          File(join(fullPath, filePath))
-              .readAsStringSync();
+      final indexFile = File(join(fullPath, filePath)).readAsStringSync();
       return Response.ok(indexFile, headers: {'content-type': 'text/html'});
     };
