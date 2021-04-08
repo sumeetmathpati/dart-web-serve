@@ -5,14 +5,14 @@ export 'package:shelf/shelf_io.dart';
 export 'package:shelf_static/shelf_static.dart';
 import 'package:shelf/shelf.dart';
 
-var path = Platform.script.toFilePath();
-var currentDirectory = dirname(path);
-var fullPath = join(currentDirectory, '..', 'templates');
+final path = Platform.script.toFilePath();
+final currentDirectory = dirname(path);
+final htmlTemplatesPath = join(currentDirectory, '..', 'templates');
 
 Middleware handleCORS() {
   const CORSHeader = {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+    'Access-Control-Allow-Methods': 'GET',
     'Access-Control-Allow-Headers': 'Origin, Content-Type',
   };
 
@@ -30,6 +30,6 @@ Middleware handleCORS() {
 }
 
 Handler htmlHandler(String filePath) => (Request request) {
-      final indexFile = File(join(fullPath, filePath)).readAsStringSync();
+      final indexFile = File(join(htmlTemplatesPath, filePath)).readAsStringSync();
       return Response.ok(indexFile, headers: {'content-type': 'text/html'});
     };

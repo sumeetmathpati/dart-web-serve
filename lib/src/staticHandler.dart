@@ -3,10 +3,10 @@ import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf_static/shelf_static.dart';
 import 'package:path/path.dart' as p;
 
-class StaticAssetsApi {
+class StaticHandler {
   final folderPath;
 
-  StaticAssetsApi(this.folderPath);
+  StaticHandler(this.folderPath);
 
   Router get router {
     final router = Router();

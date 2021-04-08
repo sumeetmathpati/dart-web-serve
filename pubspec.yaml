@@ -13,6 +13,4 @@ dependencies:
   crypto: 
 dev_dependencies:
   http: 
-  build_runner: 
-  build_web_compilers: 
-  
+  test:

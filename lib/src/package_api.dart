@@ -9,12 +9,12 @@ class PackageApi {
   Router get router {
     final router = Router();
 
-    router.get('/', (Request request) {
+    router.get('/packages', (Request request) {
       return Response.ok(json.encode(data),
           headers: {'Content-Type': 'application/vnd.pub.v2+json'});
     });
 
-    router.get('/<name>', (Request request, String name) {
+    router.get('/packages/<name>', (Request request, String name) {
       final package = data.firstWhere((package) => package['name'] == name,
           orElse: () => null);
 
@@ -26,7 +26,7 @@ class PackageApi {
       return Response.notFound('Package not found.');
     });
 
-    router.get('/<name>/versions/<version>',
+    router.get('/packages/<name>/versions/<version>',
         (Request request, String name, String version) {
       var package_version;
       final package = data.firstWhere((package) => package['name'] == name,

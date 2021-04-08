@@ -3,18 +3,23 @@ import 'package:webserver/src/staticHandler.dart';
 import 'package:webserver/webserver.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:webserver/src/settings.dart';
+import 'dart:io';
+import "package:path/path.dart" show dirname, join;
+
+final path = Platform.script.toFilePath();
+final currentDirectory = dirname(path);
+final htmlTemplatesPath = join(currentDirectory, '..', 'templates');
 
 void main(List<String> args) async {
-  // final String HOST = 'localhost';
-  // final int PORT = 8080;
-
   final app = Router();
 
-  app.mount('/api/packages/', PackageApi().router);
+  app.mount('/api/', PackageApi().router);
   // app.get('/assets/<file|.*>', createStaticHandler('templates'));
-  app.mount('/assets/', StaticAssetsApi('templates').router);
-  app.all('/', htmlHandler('index.html'));
-  
+  app.mount('/assets/', StaticHandler('templates').router);
+  app.get('/about', htmlHandler('about.html'));
+  app.get('/', htmlHandler('index.html'));
+
+
 
   final handler = Pipeline()
       .addMiddleware(logRequests())
