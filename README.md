@@ -14,11 +14,12 @@
 
 # Features
 
-- [x] Serving static files.
-- [x] Serve a REST API (in JSON).
+- [x] Serving **static files.**
+- [x] Serve a **REST API** (in JSON).
 - [x] Rendering HTML pages.
-- [x] Authentication with **JWT.**
+- [x] **Authentication** with **JWT.**
 - [x] Compile Dart Code to Javascript
+- [x] Downlaod packages from server.
 
 # Implemented API endpoints
 
