@@ -50,7 +50,7 @@ The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-p
 
 # Example Queries
 
-Please note that I've used curl to make requests, you can also use GUI tool like Postman.
+Please note that I've used curl to make requests, you can also use GUI tool like [Postman](https://www.postman.com/downloads/).
 
 ## API Queries
 
