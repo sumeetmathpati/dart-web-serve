@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf/shelf.dart';
-import 'package:webserver/src/utils.dart';
+import 'package:pubserver/src/utils.dart';
 
 class AuthApi {
   List authdb;

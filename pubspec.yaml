@@ -1,5 +1,5 @@
-name: webserver
-description: A minimal web server.
+name: pubserver
+description: A minimal pub server.
 # version: 1.0.0
 
 environment:

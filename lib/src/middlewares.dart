@@ -1,5 +1,5 @@
-import 'package:webserver/src/settings.dart';
-import 'package:webserver/src/utils.dart';
+import 'package:pubserver/src/settings.dart';
+import 'package:pubserver/src/utils.dart';
 export 'package:shelf/shelf.dart';
 export 'package:shelf/shelf_io.dart';
 export 'package:shelf_static/shelf_static.dart';

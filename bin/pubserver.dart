@@ -1,10 +1,11 @@
-import 'package:webserver/src/html_handler.dart';
-import 'package:webserver/src/middlewares.dart';
-import 'package:webserver/src/package_api.dart';
-import 'package:webserver/src/staticHandler.dart';
+import 'package:pubserver/src/html_handler.dart';
+import 'package:pubserver/src/html_handler.dart';
+import 'package:pubserver/src/middlewares.dart';
+import 'package:pubserver/src/package_api.dart';
+import 'package:pubserver/src/staticHandler.dart';
 import 'package:shelf_router/shelf_router.dart';
-import 'package:webserver/src/settings.dart';
-import 'package:webserver/src/auth_api.dart';
+import 'package:pubserver/src/settings.dart';
+import 'package:pubserver/src/auth_api.dart';
 import 'dart:io';
 import 'dart:convert';
 
