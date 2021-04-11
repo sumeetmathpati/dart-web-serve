@@ -1,5 +1,4 @@
 import 'package:pubserver/src/html_handler.dart';
-import 'package:pubserver/src/html_handler.dart';
 import 'package:pubserver/src/middlewares.dart';
 import 'package:pubserver/src/package_api.dart';
 import 'package:pubserver/src/staticHandler.dart';
@@ -16,6 +15,7 @@ void main(List<String> args) async {
   app.mount('/auth/', AuthApi(userdb, SECRET_KEY).router);
   app.mount('/api/', PackageApi().router);
   app.mount('/assets/', StaticHandler('templates').router);
+  app.mount('/package/', StaticHandler('./').router);
   app.get('/about', htmlHandler('about.html'));
   app.get('/', htmlHandler('index.html'));
 

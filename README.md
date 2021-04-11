@@ -32,6 +32,7 @@ You can find a dummy pub packages data in `package.json` file present in root fo
 | **POST** `/auth/register`| Register user. |
 | **POST** `/auth/login` | Get token. |
 | **POST** `/auth/logout` | Logout. |
+| **GET** `/package/<PACKAGE>` | This serves the packages stored in *package* folder in the root directory.|
 
 # Running Server
 
@@ -55,6 +56,8 @@ If you are using authentication for API (i.e. if it's enables in [setting](https
 
 Example `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'` instead of `curl http://localhost:8080/api/packages`
 
+See this to know about <a href="#howtogettoken">How to get token?</a>
+
 ### Get the list of all packages
 
 ```bash
@@ -75,7 +78,7 @@ http://localhost:8080/api/packages/provider/versions/5.0.0
 
 ## Authentication Queries
 
-Note that before using authentication features; enable it in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file first.
+Note that before using authentication features, enable it in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file first.
 
 ### Register User
 
@@ -83,7 +86,11 @@ Note that before using authentication features; enable it in [setting](https://g
 curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/register
 ```
 
+<a name="howtogettoken"></a>
+
 ### Get Auth Token (For already registered user)
+
+To get the use id `sumeet@gmail.com` and password `password`. 
 
 ```bash
 curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/login

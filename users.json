@@ -1,12 +1,7 @@
 [
   {
-    "email": "sumeet.mathpati@gmail.com",
-    "passwd": "97eea6eb68c512bd35f5206992da7a2e57f91d20fc482596cba4954f7a273d55",
-    "salt": "KIKcw2xcvJ+shnyiZ9exRZOyBkNi0wRG9H5Oxfa8G98="
-  },
-  {
     "email": "sumeet@gmail.com",
-    "password": "614c6c326c504b3154fa3e90c7b412c12d0c2eeffdb6f4b8b7d1a86f5cc97d02",
+    "password": "614c6c326c504b3154fa3e90c7b412c12d0c2eeffdb6f4b8b7d1a86f5cc97d02", // The password is password
     "salt": "jNeLEWb41S3XnvNgXKO1esDZOl/k0Z8YG7K6UYHMGBI="
   }
 ]
