@@ -1,12 +1,14 @@
 import 'dart:io';
 import 'dart:convert';
+import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf/shelf.dart';
+import 'package:webserver/src/middlewares.dart';
 
 class PackageApi {
   final List data = json.decode(File('packages.json').readAsStringSync());
 
-  Router get router {
+  Handler get router {
     final router = Router();
 
     router.get('/packages', (Request request) {
@@ -46,6 +48,8 @@ class PackageApi {
       return Response.notFound('Package not found.');
     });
 
-    return router;
+    final handler =
+        Pipeline().addMiddleware(checkAuthorization()).addHandler(router);
+    return handler;
   }
 }

@@ -1,4 +1,3 @@
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/sumeetmathpati/dart-web-server">
@@ -42,26 +41,56 @@ cd hosted-pub-server
 dart run
 ```
 
-## Example API Queries
+## Server Configuration
 
-### Get the list of all packages
+The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) is used to store configurations for the server.
+
+## Example Queries
+
+### API Queries
+
+If you are using authentication for API (i.e. if it's enables in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), use header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. Example `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'`.
+
+#### Get the list of all packages
 
 ```bash
 curl http://localhost:8080/api/packages/
 ```
 
-### Get the information of specific package
+#### Get the information of specific package
 
 ```bash
 curl http://localhost:8080/api/packages/provider
 ```
 
-### Get the information of certain package with specific version.
+#### Get the information of certain package with specific version.
 
 ```bash
 http://localhost:8080/api/packages/provider/versions/5.0.0
 ```
 
+### Authentication Queries
+
+Note that before using authentication features; enable it in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file first.
+
+#### Register User
+
+```bash
+curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/register
+```
+
+#### Get Auth Token (For already registered user)
+
+```bash
+curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/login
+```
+
+#### Logout User
+
+```bash 
+curl --request POST -H "Authorization: Bearer <YOUR_TOKEN>" http://localhost:8080/auth/logout 
+```
+
 ## Converting to JS
 
-We cna convert ehe dart code into JS with dart2js package.
+We can convert ehe dart code into JS with dart2js package.

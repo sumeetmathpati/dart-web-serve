@@ -1,35 +1,30 @@
+import 'package:webserver/src/html_handler.dart';
+import 'package:webserver/src/middlewares.dart';
+import 'package:webserver/src/package_api.dart';
+import 'package:webserver/src/staticHandler.dart';
+import 'package:shelf_router/shelf_router.dart';
+import 'package:webserver/src/settings.dart';
+import 'package:webserver/src/auth_api.dart';
 import 'dart:io';
-import "package:path/path.dart" show dirname, join;
-export 'package:shelf/shelf.dart';
-export 'package:shelf/shelf_io.dart';
-export 'package:shelf_static/shelf_static.dart';
-import 'package:shelf/shelf.dart';
+import 'dart:convert';
 
-final path = Platform.script.toFilePath();
-final currentDirectory = dirname(path);
-final htmlTemplatesPath = join(currentDirectory, '..', 'templates');
+void main(List<String> args) async {
+  final app = Router();
+  final List userdb = json.decode(File('users.json').readAsStringSync());
 
-Middleware handleCORS() {
-  const CORSHeader = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type',
-  };
+  app.mount('/auth/', AuthApi(userdb, SECRET_KEY).router);
+  app.mount('/api/', PackageApi().router);
+  // app.get('/assets/<file|.*>', createStaticHandler('templates'));
+  app.mount('/assets/', StaticHandler('templates').router);
+  app.get('/about', htmlHandler('about.html'));
+  app.get('/', htmlHandler('index.html'));
 
-  return createMiddleware(
-    requestHandler: (Request request) {
-      if (request.method == 'OPTIONS') {
-        return Response.ok('', headers: CORSHeader);
-      }
-      return null;
-    },
-    responseHandler: (Response response) {
-      return response.change(headers: CORSHeader);
-    },
-  );
+  final handler = Pipeline()
+      .addMiddleware(logRequests())
+      .addMiddleware(handleCORS())
+      .addMiddleware(handleAuth(SECRET_KEY))
+      .addHandler(app);
+
+  print('Serving at http://${HOST}:${PORT}');
+  await serve(handler, HOST, PORT);
 }
-
-Handler htmlHandler(String filePath) => (Request request) {
-      final indexFile = File(join(htmlTemplatesPath, filePath)).readAsStringSync();
-      return Response.ok(indexFile, headers: {'content-type': 'text/html'});
-    };
