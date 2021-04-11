@@ -1,15 +1,28 @@
 import 'dart:io';
 import 'dart:convert';
-import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
+import 'package:pubserver/src/settings.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf/shelf.dart';
 import 'package:pubserver/src/middlewares.dart';
 
 class PackageApi {
-  final List data = json.decode(File('packages.json').readAsStringSync());
+  List data = json.decode(File('packages.json').readAsStringSync());
 
   Handler get router {
     final router = Router();
+
+    // Add appropriate hostname and port number before the package path.
+    data.forEach((package) {
+      package['latest']['archive_url'] =
+          "${HOST}:${PORT}${package['latest']['archive_url']}";
+
+      if (package['versions'].length != 0) {
+        package['versions'].forEach((version) {
+          version['archive_url'] =
+              "${HOST}:${PORT}${version['archive_url']}";
+        });
+      }
+    });
 
     router.get('/packages', (Request request) {
       return Response.ok(json.encode(data),
