@@ -32,7 +32,7 @@ You can find a dummy pub packages data in `package.json` file present in root fo
 | **POST** `/auth/register`| Register user. |
 | **POST** `/auth/login` | Get token. |
 | **POST** `/auth/logout` | Logout. |
-| **GET** `/package/<PACKAGE>` | This serves the packages stored in *package* folder in the root directory.|
+| **GET** `/packages/<PACKAGE>` | This serves the packages stored in *package* folder in the root directory.|
 
 # Running Server
 
@@ -49,6 +49,8 @@ dart run
 The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) is used to store configurations for the server.
 
 # Example Queries
+
+Please note that I've used curl to make requests, you can also use GUI tool like Postman.
 
 ## API Queries
 
@@ -74,6 +76,18 @@ curl http://localhost:8080/api/packages/provider
 
 ```bash
 http://localhost:8080/api/packages/provider/versions/5.0.0
+```
+
+## Download Package
+
+```bash
+curl -H "Authorization: Bearer <YOUR_TOKEN>" 'localhost:8080/package/flutter_bloc-6.1.3.tar.gz' --output ./flutter_bloc-6.1.3.tar.gz
+```
+
+If you don't use any authentication, just enter:
+
+```bash
+curl 'localhost:8080/package/flutter_bloc-6.1.3.tar.gz' --output ./flutter_bloc-6.1.3.tar.gz
 ```
 
 ## Authentication Queries
