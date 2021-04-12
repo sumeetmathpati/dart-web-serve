@@ -12,6 +12,18 @@
   </p>
 </p>
 
+# Table of Contents
+
+- [Features](#features)
+- [Implemented API endpoints](#implemented-api-endpoints)
+- [Running Server](#running-server)
+- [Server Configuration](#server-configuration)
+- [Example Queries](#example-queries)
+  - [Example Queries](#api-queries)
+  - [Download Package Queriy](#download-package)
+  - [Authentication Queries](#authentication-queries)
+- [Converting to JS](#converting-to-js)
+
 # Features
 
 - [x] Serving **static files.**
@@ -19,21 +31,21 @@
 - [x] Rendering HTML pages.
 - [x] **Authentication** with **JWT.**
 - [x] Compile Dart Code to Javascript
-- [x] Downlaod packages from server.
+- [x] **Downlaod packages from server.**
 
 # Implemented API endpoints
 
 You can find a dummy pub packages data in `package.json` file present in root folder.
 
-| Routes                | Description                                 |
-| --------------------- | ------------------------------------------- |
-| **GET** `/api/packages/`| Get list of packages.|
-| **GET** `/api/packages/<PACKAGE>` | Get the information of specific package.|
-| **GET** `/api/packages/<PACKAGE>/versions/<VERSION>`| Get the information of certain package with specific version. |
-| **POST** `/auth/register`| Register user. |
-| **POST** `/auth/login` | Get token. |
-| **POST** `/auth/logout` | Logout. |
-| **GET** `/packages/<PACKAGE>` | This serves the packages stored in *package* folder in the root directory.|
+| Routes |Request Method | Description | If authentication is enabled |
+| - | - | - | - |
+| `/api/packages/`| GET | Get list of packages.| Requires Bearer token. |
+| `/api/packages/<PACKAGE>` | GET | Get the information of specific package.| Requires Bearer token. |
+| `/api/packages/<PACKAGE>/versions/<VERSION>`| GET | Get the information of certain package with specific version. | Requires Bearer token. |
+| `/auth/register`|POST | Register user. | Requires email id and password. |
+| `/auth/login` |POST | Get token. | Requires email id and password. |
+| `/auth/logout` |POST | Logout. | Requires Bearer token. |
+| `/packages/<PACKAGE>` |GET | This serves the packages stored in *package* folder in the root directory.| Requires Bearer token. |
 
 # Running Server
 
