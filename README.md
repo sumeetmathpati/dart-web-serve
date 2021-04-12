@@ -65,32 +65,32 @@ The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-p
 
 Please note that I've used curl to make requests, you can also use GUI tool like [Postman](https://www.postman.com/downloads/).
 
-You can check **API example documentation [here](https://documenter.getpostman.com/view/15303372/TzJoCzpM)** for. This doc is made for query for certain key with login id `sumeet@gmail.com` and password `password`.
+You can check **API example documentation [here](https://documenter.getpostman.com/view/15345544/TzJoD184)** for. For testing, you can use email ID `user@test.com` and password `password`.
 
 ## API Queries
 
-If you are using authentication for API (i.e. if it's enables in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), use header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. 
+If you are not using authentication for API (i.e. if it's disabled in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), just remove header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. 
 
-Example `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'` instead of `curl http://localhost:8080/api/packages`
+Example, use `curl http://localhost:8080/api/packages` instead of `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'`.
 
 See this to know about <a href="#howtogettoken">How to get token?</a>
 
 ### Get the list of all packages
 
 ```bash
-curl http://localhost:8080/api/packages
+curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'
 ```
 
 ### Get the information of specific package
 
 ```bash
-curl http://localhost:8080/api/packages/provider
+curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages/provider'
 ```
 
 ### Get the information of certain package with specific version.
 
 ```bash
-http://localhost:8080/api/packages/provider/versions/5.0.0
+curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages/provider/versions/5.0.0'
 ```
 
 ## Download Package
@@ -99,15 +99,9 @@ http://localhost:8080/api/packages/provider/versions/5.0.0
 curl -H "Authorization: Bearer <YOUR_TOKEN>" 'localhost:8080/package/flutter_bloc-6.1.3.tar.gz' --output ./flutter_bloc-6.1.3.tar.gz
 ```
 
-If you don't use any authentication, just enter:
-
-```bash
-curl 'localhost:8080/package/flutter_bloc-6.1.3.tar.gz' --output ./flutter_bloc-6.1.3.tar.gz
-```
-
 ## Authentication Queries
 
-Note that before using authentication features, enable it in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file first.
+Note that, to use authentication features, enable it in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file first.
 
 ### Register User
 
@@ -119,10 +113,10 @@ curl --request POST --data '{"email": "user@example.com", "password": "password"
 
 ### Get Auth Token (For already registered user)
 
-To get the use id `sumeet@gmail.com` and password `password`. 
+To get the use id `user@test.com` and password `password`. 
 
 ```bash
-curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/login
+curl --request POST --data '{"email": "user@test.com", "password": "password"}' http://localhost:8080/auth/login
 ```
 
 ### Logout User

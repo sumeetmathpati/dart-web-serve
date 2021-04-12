@@ -40,7 +40,6 @@ class AuthApi {
       final salt = generateSalt();
       final hashedPassword = hashPassword(password, salt);
       authdb.add({'email': email, 'password': hashedPassword, 'salt': salt});
-      print(authdb);
 
       return Response.ok('Registration successful!');
     });
