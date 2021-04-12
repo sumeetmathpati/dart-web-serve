@@ -5,8 +5,6 @@ import 'package:pubserver/src/staticHandler.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:pubserver/src/settings.dart';
 import 'package:pubserver/src/auth_api.dart';
-import 'dart:io';
-import 'dart:convert';
 
 void main(List<String> args) async {
   final app = Router();
