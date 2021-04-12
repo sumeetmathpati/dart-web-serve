@@ -65,6 +65,8 @@ The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-p
 
 Please note that I've used curl to make requests, you can also use GUI tool like [Postman](https://www.postman.com/downloads/).
 
+You can check **API example documentation [here](https://documenter.getpostman.com/view/15303372/TzJoCzpM)** for. This doc is made for query for certain key with login id `sumeet@gmail.com` and password `password`.
+
 ## API Queries
 
 If you are using authentication for API (i.e. if it's enables in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), use header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. 
