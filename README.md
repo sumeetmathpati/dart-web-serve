@@ -69,9 +69,7 @@ You can check **API example documentation [here](https://documenter.getpostman.c
 
 ## API Queries
 
-If you are not using authentication for API (i.e. if it's disabled in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), just remove header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. 
-
-Example, use `curl http://localhost:8080/api/packages` instead of `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'`.
+If you are not using authentication for API (i.e. if it's disabled in [setting](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) file), just remove header `"Authorization: Bearer <YOUR_TOKEN>"` in each query below. Example, just use `curl http://localhost:8080/api/packages` instead of `curl -H "Authorization: Bearer <YOUR_TOKEN>" 'http://localhost:8080/api/packages'`.
 
 See this to know about <a href="#howtogettoken">How to get token?</a>
 
@@ -106,7 +104,7 @@ Note that, to use authentication features, enable it in [setting](https://github
 ### Register User
 
 ```bash
-curl --request POST --data '{"email": "user@example.com", "password": "password"}' http://localhost:8080/auth/register
+curl --request POST --data '{"email": "user@test.com", "password": "password"}' http://localhost:8080/auth/register
 ```
 
 <a name="howtogettoken"></a>

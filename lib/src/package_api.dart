@@ -6,7 +6,7 @@ import 'package:shelf/shelf.dart';
 import 'package:pubserver/src/middlewares.dart';
 
 class PackageApi {
-  List data = json.decode(File('packages.json').readAsStringSync());
+  List data = json.decode(File('database/packages.json').readAsStringSync());
 
   Handler get router {
     final router = Router();

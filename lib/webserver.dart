@@ -10,9 +10,8 @@ import 'dart:convert';
 
 void main(List<String> args) async {
   final app = Router();
-  final List userdb = json.decode(File('users.json').readAsStringSync());
-
-  app.mount('/auth/', AuthApi(userdb, SECRET_KEY).router);
+  
+  app.mount('/auth/', AuthApi(SECRET_KEY).router);
   app.mount('/api/', PackageApi().router);
   // app.get('/assets/<file|.*>', createStaticHandler('templates'));
   app.mount('/assets/', StaticHandler('templates').router);

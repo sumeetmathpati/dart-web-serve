@@ -5,10 +5,10 @@ import 'package:shelf/shelf.dart';
 import 'package:pubserver/src/utils.dart';
 
 class AuthApi {
-  List authdb;
+  final List userdb = json.decode(File('database/users.json').readAsStringSync());
   String secret;
 
-  AuthApi(this.authdb, this.secret);
+  AuthApi(this.secret);
 
   Router get router {
     final router = Router();
@@ -29,7 +29,7 @@ class AuthApi {
       }
 
       // Make euse email is not already used.
-      final user = authdb.firstWhere((user) => user['email'] == email,
+      final user = userdb.firstWhere((user) => user['email'] == email,
           orElse: () => null);
       if (user != null) {
         return Response(HttpStatus.badRequest,
@@ -39,7 +39,7 @@ class AuthApi {
       // Create account
       final salt = generateSalt();
       final hashedPassword = hashPassword(password, salt);
-      authdb.add({'email': email, 'password': hashedPassword, 'salt': salt});
+      userdb.add({'email': email, 'password': hashedPassword, 'salt': salt});
 
       return Response.ok('Registration successful!');
     });
@@ -60,7 +60,7 @@ class AuthApi {
       }
 
       // Get user from DB of given email
-      final user = authdb.firstWhere((user) => user['email'] == email,
+      final user = userdb.firstWhere((user) => user['email'] == email,
           orElse: () => null);
 
       // If user is not present
