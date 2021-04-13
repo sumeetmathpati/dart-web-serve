@@ -14,6 +14,7 @@
 
 # Table of Contents
 
+- [Live Demo](#live-demo)
 - [Features](#features)
 - [Implemented API endpoints](#implemented-api-endpoints)
 - [Running Server](#running-server)
@@ -24,6 +25,10 @@
   - [Download Package Queriy](#download-package)
   - [Authentication Queries](#authentication-queries)
 - [Converting to JS](#converting-to-js)
+
+# Live Demo
+
+Don't want to clone and run? You can try the live demo. You can try all the queries given below to this server. 
 
 # Features
 

@@ -17,7 +17,8 @@ class StaticHandler {
     router.get('/<file|.*>', (Request req) async {
       final assetPath = p.join(folderPath, req.requestedUri.path.substring(1));
 
-      if (contentType != "") {
+      
+      if (contentType == "") {
         return await createFileHandler(assetPath)(req);
       } else {
         return await createFileHandler(assetPath, contentType: contentType)(

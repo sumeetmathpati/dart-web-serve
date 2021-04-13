@@ -1,16 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
-    <link href="/assets/styles.css" rel="stylesheet" />
+<html>
+<title>Hosted Pub Server</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="/assets/styles.css" />
+<style>
 
-</head>
+</style>
+
 <body>
-    <h1>Hello!</h1>
-    <h2>This is hosted pub server.</h2>
+
+    <div id="navbar" class="w3-bar w3-xlarge">
+        <a href="#" class="w3-bar-item w3-button w3-text-white">Hosted Pub Server</a>
+        <a href="https://documenter.getpostman.com/view/15345544/TzJoD184" class="w3-text-white w3-bar-item w3-right w3-button" target="blank">API DOC</a>
+        <a href="https://gitlab.com/sumeetmathpati/hosted-pub-server" class="w3-text-white w3-bar-item w3-right w3-button" target="blank">Git</a>
+
+    </div>
+
+    <div class="w3-content" style="max-width:1000px">
+
+        <div class="w3-row w3-container">
+            <div class="w3-padding-64">
+                <span class="w3-xlarge w3-text-white w3-padding-16">You can query the server following...</span><br>
+                <span class="w3-large w3-text-white w3-padding-16">Note that this you can also query for authentication API here. Given below are some of the all queries</span>
+            </div>
+            <div class="section w3-col l4 w3-container w3-padding-16">
+                <h3 class="w3-text-white">Get list of packages</h3>
+                <p class="w3-text-white">Get list of all the packages present on server.</p>
+                <button class="w3-text-white w3-round-large w3-button w3-margin-top w3-border w3-border-blue" onclick="getPackages()">Search</button>
+                <hr class="w3-hide-large">
+            </div>
+
+            <div class="section w3-col l4 w3-container w3-padding-16">
+                <h3 class="w3-text-white">Get information about specific package</h3>
+                <p class="w3-text-white">Get information like latest version, current version download link for specific package.</p>
+                <label class="w3-text-white">Package Name</label>
+                <input id="packagename1" class="w3-input" type="text" placeholder="Example, provider">
+                <button class="w3-text-white w3-round-large w3-button w3-margin-top w3-border w3-border-blue"
+                    onclick="getPackage()">Search</button>
+                    <hr class="w3-hide-large">
+            </div>
+
+            <div class="section w3-col l4 w3-container w3-padding-16">
+                <h3 class="w3-text-white">Get information about specific package and certain version.</h3>
+                <p class="w3-text-white">Get details about specific version about certain package.</p>
+                <label class="w3-text-white">Package Name</label>
+                <input id="packagename2" class="w3-input" type="text" placeholder="Example, provider">
+                <br>
+                <label class="w3-text-white">Version Number</label>
+                <input id="versionNumber" class="w3-input" type="text" placeholder="Example, 5.0.0">
+                <button class="w3-text-white w3-round-large w3-button w3-margin-top w3-border w3-border-blue" onclick="getPackageWithVersion()">Search</button>
+                <hr class="w3-hide-large">
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="w3-bottom w3-container w3-padding-32 w3-margin-top" style="background-color: #1C2834;">
+        <p class="w3-text-white">Pub Server</p>
+    </footer>
+
+    <script src="/assets/main.js"></script>
 </body>
+
 </html>

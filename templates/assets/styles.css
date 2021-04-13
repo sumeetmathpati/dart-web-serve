@@ -1,3 +1,51 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Raleway", sans-serif
+}
+
+body {
+    background-color: #28394b;
+}
+
 a {
     text-decoration: none;
+}
+
+#navbar {
+    background-color: #1C2834;
+}
+
+input {
+    background-color: #1C2834;
+    color: white;
+}
+
+.w3-button:hover {
+    background-color: #1C2834 !important;
+    color: white !important;
+}
+
+hr {
+    border: 1px solid white;
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+
+
+@media (max-width:768px){
+    
+}
+@media (min-width:993px){
+    
+}
+@media (max-width:992px) and (min-width:601px){
+    
+}
+@media (max-width:992px){
+    
 }
