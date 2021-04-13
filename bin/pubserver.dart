@@ -6,14 +6,20 @@ import 'package:pubserver/src/staticHandler.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:pubserver/src/settings.dart';
 import 'package:pubserver/src/auth_api.dart';
+import 'package:args/args.dart';
+import 'package:args/args.dart';
 
 void main(List<String> args) async {
   final app = Router();
+  var parser = ArgParser();
+
+  parser.addOption('host', abbr: 'h');
+  var results = parser.parse(args);
   
+  // Get hostname and port number
   var portEnv = Platform.environment['PORT'];
   var port = portEnv == null ? PORT_NUMBER : int.parse(portEnv);
-  var hostEnv = Platform.environment['HOST'];
-  var host = hostEnv == null ? HOST_NAME : int.parse(hostEnv);
+  var host = results['host'] ? results['host'] : HOST_NAME;
 
   app.mount('/auth/', AuthApi(SECRET_KEY).router);
   app.mount('/api/', PackageApi(host, port).router);
@@ -29,5 +35,5 @@ void main(List<String> args) async {
       .addHandler(app);
 
   // print('Serving at http://'0.0.0.0:${PORT}');
-  await serve(handler, '0.0.0.0', port);
+  await serve(handler, host, port);
 }

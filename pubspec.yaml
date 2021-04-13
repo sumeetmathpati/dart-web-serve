@@ -12,6 +12,7 @@ dependencies:
   shelf_router: ^1.0.0
   crypto: ^3.0.1
   dart_jsonwebtoken: ^2.0.1
+  args: ^2.0.0
 dev_dependencies:
   test: ^1.16.8
   http: ^0.13.1
