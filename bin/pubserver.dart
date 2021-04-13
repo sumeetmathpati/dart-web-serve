@@ -34,6 +34,6 @@ void main(List<String> args) async {
       .addMiddleware(handleAuth(SECRET_KEY))
       .addHandler(app);
 
-  // print('Serving at http://'0.0.0.0:${PORT}');
+  print('Serving at http://${host}:${port}');
   await serve(handler, host, port);
 }
