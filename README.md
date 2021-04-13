@@ -14,7 +14,7 @@
 
 # Table of Contents
 
-- [Live Demo](#live-demo)
+- [Live Server](#live-server)
 - [Features](#features)
 - [Implemented API endpoints](#implemented-api-endpoints)
 - [Running Server](#running-server)
@@ -26,9 +26,9 @@
   - [Authentication Queries](#authentication-queries)
 - [Converting to JS](#converting-to-js)
 
-# Live Demo
+# Live Server
 
-Don't want to clone and run? You can try the live demo. You can try all the queries given below to this server. 
+Don't want to clone and run? You can try the live server [here](https://hosted-pub-server.herokuapp.com/). You can try all the queries given below to this server. 
 
 # Features
 
