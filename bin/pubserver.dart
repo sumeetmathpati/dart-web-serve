@@ -11,10 +11,12 @@ void main(List<String> args) async {
   final app = Router();
   
   var portEnv = Platform.environment['PORT'];
-  var port = portEnv == null ? 9999 : int.parse(portEnv);
+  var port = portEnv == null ? PORT_NUMBER : int.parse(portEnv);
+  var hostEnv = Platform.environment['HOST'];
+  var host = hostEnv == null ? HOST_NAME : int.parse(hostEnv);
 
   app.mount('/auth/', AuthApi(SECRET_KEY).router);
-  app.mount('/api/', PackageApi('8080').router);
+  app.mount('/api/', PackageApi(host, port).router);
   app.mount('/assets/', StaticHandler('templates').router);
   app.mount('/packages/', StaticHandler('./').router);
   app.get('/about', htmlHandler('about.html'));

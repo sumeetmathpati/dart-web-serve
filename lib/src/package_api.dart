@@ -7,9 +7,11 @@ import 'package:pubserver/src/middlewares.dart';
 
 class PackageApi {
   List data = json.decode(File('database/packages.json').readAsStringSync());
+  
   final PORT;
+  final HOST;
 
-  PackageApi(this.PORT);
+  PackageApi(this.HOST, this.PORT);
 
   Handler get router {
     final router = Router();
@@ -17,7 +19,7 @@ class PackageApi {
     // Add appropriate hostname and port number before the package path.
     data.forEach((package) {
       package['latest']['archive_url'] =
-          "${HOST_NAME}:${PORT}${package['latest']['archive_url']}";
+          "${HOST}:${PORT}${package['latest']['archive_url']}";
 
       if (package['versions'].length != 0) {
         package['versions'].forEach((version) {
