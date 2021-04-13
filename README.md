@@ -18,6 +18,7 @@
 - [Implemented API endpoints](#implemented-api-endpoints)
 - [Running Server](#running-server)
 - [Server Configuration](#server-configuration)
+- [API Documentation](#api-documentation)
 - [Example Queries](#example-queries)
   - [Example Queries](#api-queries)
   - [Download Package Queriy](#download-package)
@@ -59,11 +60,14 @@ dart run
 
 The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) is used to store configurations for the server.
 
+# API Documentation
+
+You can check API example documentation [here](https://documenter.getpostman.com/view/15345544/TzJoD184).
+
 # Example Queries
 
 Please note that I've used curl to make requests, you can also use GUI tool like [Postman](https://www.postman.com/downloads/).
 
-You can check **API example documentation [here](https://documenter.getpostman.com/view/15345544/TzJoD184)** for. For testing, you can use email ID `user@test.com` and password `password`.
 
 ## API Queries
 
