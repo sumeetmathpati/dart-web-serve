@@ -5,7 +5,7 @@ import 'package:shelf/shelf.dart';
 import 'package:pubserver/src/utils.dart';
 
 class AuthApi {
-  final List userdb = json.decode(File('database/users.json').readAsStringSync());
+  final List userdb = json.decode(File('db/users.json').readAsStringSync());
   String secret;
 
   AuthApi(this.secret);
