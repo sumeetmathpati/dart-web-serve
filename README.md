@@ -35,10 +35,8 @@
 
 # Implemented API endpoints
 
-You can find a dummy pub packages data in `package.json` file present in root folder.
-
 | Routes | Description | If authentication is enabled |
-| - | - | - | - |
+| - | - | - |
 | **GET** `/api/packages/` | Get list of packages.| Requires Bearer token. |
 | **GET** `/api/packages/<PACKAGE>` | Get the information of specific package.| Requires Bearer token. |
 | **GET** `/api/packages/<PACKAGE>/versions/<VERSION>` | Get the information of certain package with specific version. | Requires Bearer token. |
