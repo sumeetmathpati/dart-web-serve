@@ -22,7 +22,7 @@ void main(List<String> args) async {
   var host = results['host'] != null ? results['host'] : HOST_NAME;
 
   app.mount('/auth/', AuthApi(SECRET_KEY).router);
-  app.mount('/api/', PackageApi(host, port).router);
+  app.mount('/api/', PackageApi().router);
   app.mount('/assets/', StaticHandler('templates').router);
   app.mount('/packages/', StaticHandler('./').router);
   app.get('/about', htmlHandler('about.html'));
