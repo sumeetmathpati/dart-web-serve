@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:pubserver/src/html_handler.dart';
 import 'package:pubserver/src/middlewares.dart';
 import 'package:pubserver/src/package_api.dart';
@@ -8,9 +9,12 @@ import 'package:pubserver/src/auth_api.dart';
 
 void main(List<String> args) async {
   final app = Router();
+  
+  var portEnv = Platform.environment['PORT'];
+  var port = portEnv == null ? 9999 : int.parse(portEnv);
 
   app.mount('/auth/', AuthApi(SECRET_KEY).router);
-  app.mount('/api/', PackageApi().router);
+  app.mount('/api/', PackageApi('8080').router);
   app.mount('/assets/', StaticHandler('templates').router);
   app.mount('/packages/', StaticHandler('./').router);
   app.get('/about', htmlHandler('about.html'));
@@ -22,6 +26,6 @@ void main(List<String> args) async {
       .addMiddleware(handleAuth(SECRET_KEY))
       .addHandler(app);
 
-  print('Serving at http://${HOST}:${PORT}');
-  await serve(handler, HOST, PORT);
+  // print('Serving at http://'0.0.0.0:${PORT}');
+  await serve(handler, '0.0.0.0', port);
 }
