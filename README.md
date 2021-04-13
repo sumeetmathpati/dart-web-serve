@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/sumeetmathpati/dart-web-server">
-    <img src="./logo.png" alt="Logo" width="80" height="80">
+    <img src="./logo.png" alt="Logo" width="80" height="80" style="border-radius: 10px:">
   </a>
 
   <h3 align="center">Hosted Pub Server</h3>
