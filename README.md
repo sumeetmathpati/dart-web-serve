@@ -37,15 +37,15 @@
 
 You can find a dummy pub packages data in `package.json` file present in root folder.
 
-| Routes |Request Method | Description | If authentication is enabled |
+| Routes | Description | If authentication is enabled |
 | - | - | - | - |
-| `/api/packages/`| GET | Get list of packages.| Requires Bearer token. |
-| `/api/packages/<PACKAGE>` | GET | Get the information of specific package.| Requires Bearer token. |
-| `/api/packages/<PACKAGE>/versions/<VERSION>`| GET | Get the information of certain package with specific version. | Requires Bearer token. |
-| `/auth/register`|POST | Register user. | Requires email id and password. |
-| `/auth/login` |POST | Get token. | Requires email id and password. |
-| `/auth/logout` |POST | Logout. | Requires Bearer token. |
-| `/packages/<PACKAGE>` |GET | This serves the packages stored in *package* folder in the root directory.| Requires Bearer token. |
+| **GET** `/api/packages/` | Get list of packages.| Requires Bearer token. |
+| **GET** `/api/packages/<PACKAGE>` | Get the information of specific package.| Requires Bearer token. |
+| **GET** `/api/packages/<PACKAGE>/versions/<VERSION>` | Get the information of certain package with specific version. | Requires Bearer token. |
+| **POST** `/auth/register` | Register user. | Requires email id and password. |
+| **POST** `/auth/login`  | Get token. | Requires email id and password. |
+| **POST** `/auth/logout` | Logout. | Requires Bearer token. |
+| **GET** `/packages/<PACKAGE>`  | This serves the packages stored in *package* folder in the root directory.| Requires Bearer token. |
 
 # Running Server
 
