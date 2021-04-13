@@ -19,7 +19,7 @@ void main(List<String> args) async {
   // Get hostname and port number
   var portEnv = Platform.environment['PORT'];
   var port = portEnv == null ? PORT_NUMBER : int.parse(portEnv);
-  var host = results['host'] ? results['host'] : HOST_NAME;
+  var host = results['host'] != null ? results['host'] : HOST_NAME;
 
   app.mount('/auth/', AuthApi(SECRET_KEY).router);
   app.mount('/api/', PackageApi(host, port).router);
