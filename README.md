@@ -28,7 +28,7 @@
 
 # Live Server
 
-Don't want to clone and run? You can try the live server [here](https://hosted-pub-server.herokuapp.com/). You can try all the queries given below to this server. 
+Don't want to clone and run? You can try the live server **[here](https://hosted-pub-server.herokuapp.com/).** You can try all the queries given below to this server. 
 
 # Features
 
@@ -56,14 +56,16 @@ Don't want to clone and run? You can try the live server [here](https://hosted-p
 To run the server, enter the commands
 
 ```bash
-git clone https://github.com/sumeetmathpati/dart-web-server.git
-cd hosted-pub-server
+git clone https://gitlab.com/sumeetmathpati/hosted-pub-server.git
+cd pub-server
 dart run
 ```
 
 # Server Configuration
 
 The file in [`lib/src/settings.dart`](https://github.com/sumeetmathpati/hosted-pub-server/blob/main/lib/src/settings.dart) is used to store configurations for the server.
+
+You can use `-h` command line argument to pass hostname.
 
 # API Documentation
 
