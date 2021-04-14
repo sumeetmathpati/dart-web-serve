@@ -57,7 +57,7 @@ To run the server, enter the commands
 
 ```bash
 git clone https://gitlab.com/sumeetmathpati/hosted-pub-server.git
-cd pub-server
+cd hosted-pub-server
 dart run
 ```
 
